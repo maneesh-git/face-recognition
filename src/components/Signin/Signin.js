@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-
+import serverUrl from '../../utilities/urls';
 
 class Signin extends Component{
 
@@ -17,7 +17,7 @@ class Signin extends Component{
     }
 
     onSubmitSignIn = () => {
-        fetch("https://fast-lake-09325.herokuapp.com/signin", {
+        fetch(`${serverUrl}/signin`, {
             method : 'post',
             headers : {'Content-Type' : 'application/json'},
             body : JSON.stringify({

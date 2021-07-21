@@ -6,6 +6,8 @@ import Logo from './components/Logo/Logo';
 import Rank from './components/Rank/Rank';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
+import serverUrl from './utilities/urls';
+
 import './App.css';
 
 import Particles from 'react-particles-js';
@@ -77,7 +79,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({ imageUrl : this.state.input})
-    fetch('https://fast-lake-09325.herokuapp.com/imageurl', {
+    fetch(`${serverUrl}/imageurl`, {
       method : 'post',
       headers : {'Content-Type' : 'application/json'},
       body : JSON.stringify({
@@ -87,7 +89,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         if(response) {
-          fetch('https://fast-lake-09325.herokuapp.com/image',{
+          fetch(`${serverUrl}/image`,{
             method: 'put',
             headers : {'Content-Type' : 'application/json'},
             body : JSON.stringify({

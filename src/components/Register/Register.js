@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import serverUrl from '../../utilities/urls';
 
 class Register extends Component{
 
@@ -23,7 +23,7 @@ class Register extends Component{
 
     onRegisterSubmit = () => {
         console.log("register submit clicked.......")
-        fetch("https://fast-lake-09325.herokuapp.com/register", {
+        fetch(`${serverUrl}/register`, {
             method : 'post',
             headers : {'Content-Type' : 'application/json'},
             body : JSON.stringify({
